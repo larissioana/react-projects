@@ -1,0 +1,233 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.light-theme {
+    --clr-bg: #C3B9AF;
+    --clr-font: #181818;
+    --toggle-btn: #1d1d1c;
+    --links-clr: #181818;
+    --line-bg: #A8211A;
+    --link-bg: #A8211A;
+    --link-clr: #b6a3a3;
+    --link-bg1: linear-gradient(#ff621e, #b71010);
+}
+
+.dark-theme {
+    --clr-bg: #181818;
+    --clr-font: #ebebeb;
+    --toggle-btn: #f7f7f7;
+    --links-clr: #ebebeb;
+    --line-bg: #d2cdcd;
+    --link-bg1: linear-gradient(#25f90d, #d4e919);
+    --link-clr: rgb(220, 216, 216);
+}
+
+body {
+    background: var(--clr-bg);
+    transition: all 1s ease-in-out;
+    overflow-x: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+
+/* HomePage */
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
+    place-items: center;
+    margin: 3rem auto 4rem auto;
+}
+
+.projects-info img {
+    width: 20rem;
+    object-fit: cover;
+}
+
+.title {
+    font-size: clamp(2rem, 4vw, 4rem);
+    color: var(--clr-font);
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 2rem;
+}
+
+.subtitle {
+    font-size: clamp(1.5rem, 2vw, 2rem);
+    color: var(--clr-font);
+    text-align: center;
+    margin-top: 2rem;
+}
+
+.about-info img {
+    width: 10rem;
+    height: 9.5rem;
+    clip-path: circle();
+    object-position: top;
+    object-fit: cover;
+    margin-top: 2rem;
+}
+
+.about-info {
+    display: grid;
+    place-items: center;
+    margin: 3rem auto 3rem auto;
+}
+
+.toggle-btn {
+    display: flex;
+    justify-content: flex-start;
+    border: none;
+    background: none;
+    font-size: 2rem;
+    margin-left: 1rem;
+    margin-top: 1rem;
+    cursor: pointer;
+    color: var(--toggle-btn);
+}
+
+
+/* Nav */
+
+nav {
+    display: grid;
+    place-content: center;
+    width: 100%;
+}
+
+.menu-btn {
+    border: none;
+    background: none;
+    color: var(--clr-font);
+    cursor: pointer;
+    margin-bottom: 2rem;
+    font-size: clamp(.9rem, 4vw, 1.5rem);
+    transition: all .3s ease-in;
+}
+
+nav,
+.about-info {
+    padding: 0rem 2rem;
+}
+
+.links li {
+    list-style: none;
+    padding-bottom: .4rem;
+}
+
+.links a {
+    text-decoration: none;
+    font-size: clamp(.9rem, 2vw, 1rem);
+    color: var(--links-clr);
+    font-weight: bolder;
+}
+
+.line {
+    width: 100%;
+    height: .4rem;
+    background: var(--line-bg);
+    margin-top: .4rem;
+}
+
+
+/* Footer */
+
+footer {
+    width: 100vw;
+    height: 10rem;
+    margin-top: 5rem;
+}
+
+footer .links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 3rem;
+}
+
+footer .links a {
+    color: #070707;
+    padding: 1rem;
+    margin-top: 1rem;
+    clip-path: circle();
+    animation: color 5s ease-in-out infinite;
+}
+
+@keyframes color {
+    from {
+        background: var(--link-bg1);
+        filter: grayscale(90%);
+    }
+    to {
+        background: var(--link-clr);
+        filter: none;
+    }
+}
+
+
+/* Contact */
+
+form {
+    margin: 3rem auto 3rem auto;
+    display: grid;
+    place-content: center;
+    width: 100%;
+}
+
+form h2 {
+    font-size: clamp(1.3rem, 2vw, 2rem);
+    color: var(--clr-font);
+    text-align: center;
+    text-transform: uppercase;
+    margin-top: 2rem;
+    margin-bottom: 3rem;
+    letter-spacing: .1rem;
+}
+
+label {
+    margin-top: 1rem;
+    color: var(--clr-font);
+    text-indent: 1rem;
+    font-size: clamp(.9rem, 2vw, 1rem);
+}
+
+input,
+textarea,
+.submit-btn {
+    width: 20rem;
+    padding: 1rem 0rem;
+    margin-top: 1rem;
+    background-color: var(--clr-bg);
+    color: var(--clr-font);
+    text-indent: 1rem;
+    border: 1px solid var(--line-bg);
+    transition: all .6s ease-in;
+}
+
+input,
+textarea:focus {
+    outline: none;
+}
+
+.submit-btn:hover {
+    cursor: pointer;
+    background: var(--line-bg);
+    color: #181818;
+}
+
+@media (max-width:375px) {
+    .projects-info img {
+        width: 15rem;
+    }
+}
+
+@media (max-width:350px) {
+    input,
+    textarea,
+    .submit-btn {
+        width: 17rem;
+    }
+}
