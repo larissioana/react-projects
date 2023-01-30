@@ -11,10 +11,17 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import {Route,Routes} from 'react-router-dom';
 
+const getStorageTheme=()=>{
+  let theme='light-theme'
+  if(localStorage.getItem('theme')){
+    theme=localStorage.getItem('theme')
+  }
+  return theme
+}
 
 function App() {
   const[toggle,setToggle]=useState(true);
-  const[theme,setTheme]=useState('light-theme');
+  const[theme,setTheme]=useState(getStorageTheme());
   
   const toggleBtn=()=>{
     setToggle(!toggle);
@@ -30,6 +37,7 @@ function App() {
   }
   useEffect(()=>{
   document.documentElement.className=theme;
+  localStorage.setItem('theme',theme)
   },[theme]);
 
   return (
